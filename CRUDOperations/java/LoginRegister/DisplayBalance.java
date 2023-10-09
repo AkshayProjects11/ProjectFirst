@@ -14,14 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 @WebServlet("/balancelink")
-public class Display extends HttpServlet{
+public class DisplayBalance extends HttpServlet{
 	Connection con;
 	@Override
 	public void init() throws ServletException {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bankapplication ?user=root &password=akshay@11");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bankapplication ? user=root &password=akshay@11");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -31,7 +31,7 @@ public class Display extends HttpServlet{
 		}
 	}
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String accountNumber=req.getParameter("number");
 		int number=Integer.parseInt(accountNumber);
 		
